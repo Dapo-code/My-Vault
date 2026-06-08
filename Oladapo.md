@@ -20,6 +20,9 @@ This file contains the list of entries and links to files that are useful to me.
 - [[ObsidianSkills/skill-format-guide/skill-format-guide|Skill Format Guide]]
 	Description: Defines the standard structure for creating new skill folders, SKILL.md files, and linked top-level skill notes.
 
+- [[ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup|GitHub SSH Dapo Setup Skill]]
+	Description: Provides interactive scripts that configure Dapo-code SSH authentication for this repository only, step by step with confirm prompts.
+
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]
 	Description: Tracks changes related only to skills under ObsidianSkills, including new skill folders, SKILL.md files, and skill note updates.
 

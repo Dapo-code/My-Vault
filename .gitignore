@@ -1,0 +1,59 @@
+# =============================
+# Secrets and credentials
+# =============================
+.env
+.env.*
+!.env.example
+!.env.template
+
+*.pem
+*.key
+*.p12
+*.pfx
+*.asc
+*.kdbx
+*.jks
+*.keystore
+
+# Common secret-bearing files
+secrets.*
+secret.*
+credentials.*
+*.credentials
+*.token
+*.tokens
+
+# SSH and cloud credentials
+**/.ssh/
+**/.aws/
+**/.azure/
+**/.gnupg/
+
+# =============================
+# Logs and runtime output
+# =============================
+logs/
+*.log
+*.out
+*.err
+
+# =============================
+# Obsidian local/device-specific
+# =============================
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/workspaces/
+.obsidian/cache/
+.obsidian/.trash/
+
+# Plugin data files can include API keys/tokens
+.obsidian/plugins/**/data.json
+
+# =============================
+# OS/editor noise
+# =============================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

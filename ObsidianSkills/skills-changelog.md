@@ -29,6 +29,7 @@ Use this changelog for skill-specific updates such as:
 - 2026-06-08: Marked skill-format-guide as the canonical guide for creating future skills and linked it from all skill notes.
 - 2026-06-08: Simplified folder-level skill notes to a minimal description plus links to the canonical skill format guide and local SKILL.md.
 - 2026-06-08: Removed the legacy ObsidianSkills/skill.md and ObsidianSkills/daily-notes-skill.md files after migrating to folder-based skill notes.
+- 2026-06-08: Added github-ssh-dapo-setup skill with interactive scripts to configure repo-scoped Dapo-code SSH authentication and optional HTTPS remote rollback.
 
 ## Related
 - [[Oladapo]]

@@ -11,10 +11,14 @@
             "id": "c3f5e5c32bdf7155",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "ObsidianSkills/daily-notes/daily-notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "daily-notes"
             }
           }
         ]
@@ -181,6 +185,12 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "ObsidianSkills/github-ssh-dapo-setup/scripts/restore_https_remote.sh",
+    "ObsidianSkills/github-ssh-dapo-setup/scripts/setup_repo_ssh_identity.sh",
+    "ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup.md",
+    "ObsidianSkills/github-ssh-dapo-setup/SKILL.md",
+    "ObsidianSkills/github-ssh-dapo-setup/scripts",
+    "ObsidianSkills/github-ssh-dapo-setup",
     "ObsidianSkills/skill.md",
     "ObsidianSkills/daily-notes-skill.md",
     "ObsidianSkills/skills-changelog.md",
@@ -207,15 +217,9 @@
     "ObsidianSkills/index-update",
     "My-Notes/monitor-note-analysis.md",
     "ObsidianSkills/deduplication-cron-skill.md",
-    "scripts/deduplicate_notes_and_skills.sh",
-    "logs",
-    "scripts",
     "My-Notes/my-notes.md",
     "changelog.md",
     "ObsidianSkills/changelog-maintenance-skill.md",
-    "Oladapo.md",
-    "my-notes.md",
-    "My-Notes/daily-notes-skill.md",
-    "daily-notes-skill.md"
+    "Oladapo.md"
   ]
 }
