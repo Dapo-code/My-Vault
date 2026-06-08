@@ -9,6 +9,34 @@ disable-model-invocation: true
 ## Goal
 Prevent duplicate notes and duplicate skills, then merge duplicates into one canonical file.
 
+## Required Parameters
+Collect these before running this skill:
+
+1. vault_path
+- Absolute path to the vault root (for example `/mnt/c/my-vault`).
+
+2. run_mode
+- `dry-run` or `apply`.
+
+3. script_path
+- Path to `deduplicate_notes_and_skills.sh`.
+
+## Optional Parameters
+1. cron_schedule
+- Cron expression for automation. Defaults to `30 2 * * *`.
+
+2. log_path
+- Log destination. Defaults to `/mnt/c/my-vault/logs/dedupe.log`.
+
+3. include_changelog_update
+- Boolean for whether to log merge activity in changelog after apply.
+
+## Parameter Rules
+1. Always run `dry-run` first before first-time or changed schedules.
+2. Do not run `apply` if `vault_path` or `script_path` is missing.
+3. Preserve link safety by validating rewritten wiki links after merges.
+4. If indexed in Oladapo.md, link `deduplication-cron.md` and never `SKILL.md`.
+
 ## Script
 - ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh
 
@@ -41,11 +69,25 @@ line='30 2 * * * /bin/bash /mnt/c/my-vault/ObsidianSkills/deduplication-cron/scr
 - Log merge actions in changelog.md.
 - If this skill is indexed in Oladapo.md, link `deduplication-cron.md` and never link `SKILL.md` directly.
 
+## Steps
+1. Validate required parameters.
+2. Run `dry-run` using `vault_path` and `script_path`.
+3. Review proposed canonical targets and link rewrites.
+4. Run `apply` only when approved.
+5. Configure cron with `cron_schedule` and `log_path` if automation is requested.
+6. Update changelog when `include_changelog_update` is true.
+
 ## Verification
 ```bash
 crontab -l
 tail -n 50 /mnt/c/my-vault/logs/dedupe.log
 ```
+
+## Validation Checklist
+- All required parameters were provided.
+- Dry run completed before apply.
+- Post-merge links resolve to canonical targets.
+- Cron entry points to the expected script and vault path.
 
 ## Related
 - [[Oladapo]]
