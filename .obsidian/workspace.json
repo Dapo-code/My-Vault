@@ -1,0 +1,221 @@
+{
+  "main": {
+    "id": "e9662d9258ccb928",
+    "type": "split",
+    "children": [
+      {
+        "id": "18ecffdb99a2bc44",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c3f5e5c32bdf7155",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f3ad2641d6269784",
+    "type": "split",
+    "children": [
+      {
+        "id": "55c9c8d13c3a5a32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5942d39204ba4d64",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "66471bd27819e5d1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "9bed957254d0f730",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "e00bcd6220f60851",
+    "type": "split",
+    "children": [
+      {
+        "id": "8f85030bbf071464",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cea21fd4b409bfe4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Welcome.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Welcome"
+            }
+          },
+          {
+            "id": "e6d49f4ca35ad21e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Welcome.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Welcome"
+            }
+          },
+          {
+            "id": "5e92080168b7f5e8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "cf45d7afe5eea13a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "d8bad072e1a13e99",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Welcome.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Welcome"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "c3f5e5c32bdf7155",
+  "lastOpenFiles": [
+    "ObsidianSkills/skill.md",
+    "ObsidianSkills/daily-notes-skill.md",
+    "ObsidianSkills/skills-changelog.md",
+    "ObsidianSkills/skill-format-guide/skill-format-guide.md",
+    "ObsidianSkills/skill-format-guide/SKILL.md",
+    "ObsidianSkills/skill-format-guide",
+    "ObsidianSkills/deduplication-cron/deduplication-cron.md",
+    "ObsidianSkills/daily-notes/daily-notes.md",
+    "ObsidianSkills/changelog-maintenance/changelog-maintenance.md",
+    "ObsidianSkills/index-update/index-update.md",
+    "ObsidianSkills/deduplication-cron/SKILL.md",
+    "ObsidianSkills/daily-notes/SKILL.md",
+    "ObsidianSkills/changelog-maintenance/SKILL.md",
+    "ObsidianSkills/index-update/SKILL.md",
+    "ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh",
+    "ObsidianSkills/daily-notes/legacy-skill-note.md",
+    "ObsidianSkills/deduplication-cron/legacy-skill-note.md",
+    "ObsidianSkills/changelog-maintenance/legacy-skill-note.md",
+    "ObsidianSkills/index-update/legacy-skill-note.md",
+    "ObsidianSkills/daily-notes",
+    "ObsidianSkills/deduplication-cron/scripts",
+    "ObsidianSkills/deduplication-cron",
+    "ObsidianSkills/changelog-maintenance",
+    "ObsidianSkills/index-update",
+    "My-Notes/monitor-note-analysis.md",
+    "ObsidianSkills/deduplication-cron-skill.md",
+    "scripts/deduplicate_notes_and_skills.sh",
+    "logs",
+    "scripts",
+    "My-Notes/my-notes.md",
+    "changelog.md",
+    "ObsidianSkills/changelog-maintenance-skill.md",
+    "Oladapo.md",
+    "my-notes.md",
+    "My-Notes/daily-notes-skill.md",
+    "daily-notes-skill.md"
+  ]
+}
