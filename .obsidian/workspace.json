@@ -181,6 +181,7 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "ObsidianSkills/deduplication-cron/SKILL.md",
     "Oladapo.md",
     "Skill-Index.md",
     "ObsidianSkills/changelog-maintenance/SKILL.md",
@@ -206,7 +207,6 @@
     "ObsidianSkills/deduplication-cron/deduplication-cron.md",
     "ObsidianSkills/changelog-maintenance/changelog-maintenance.md",
     "ObsidianSkills/index-update/index-update.md",
-    "ObsidianSkills/deduplication-cron/SKILL.md",
     "ObsidianSkills/daily-notes/SKILL.md",
     "ObsidianSkills/index-update/SKILL.md",
     "ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh",
