@@ -30,6 +30,7 @@ Use this changelog for skill-specific updates such as:
 - 2026-06-08: Simplified folder-level skill notes to a minimal description plus links to the canonical skill format guide and local SKILL.md.
 - 2026-06-08: Removed the legacy ObsidianSkills/skill.md and ObsidianSkills/daily-notes-skill.md files after migrating to folder-based skill notes.
 - 2026-06-08: Added github-ssh-dapo-setup skill with interactive scripts to configure repo-scoped Dapo-code SSH authentication and optional HTTPS remote rollback.
+- 2026-06-08: Added github-commit-push skill that references rules/github-rules/github-agent-rules.md for consistent commit/push behavior and SKILL UPDATE style commit subjects.
 
 ## Related
 - [[Oladapo]]

@@ -23,6 +23,9 @@ This file contains the list of entries and links to files that are useful to me.
 - [[ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup|GitHub SSH Dapo Setup Skill]]
 	Description: Provides interactive scripts that configure Dapo-code SSH authentication for this repository only, step by step with confirm prompts.
 
+- [[ObsidianSkills/github-commit-push/github-commit-push|GitHub Commit and Push Skill]]
+	Description: Enforces a consistent git interaction workflow with required commit prefixes and references repository GitHub rules before committing and pushing.
+
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]
 	Description: Tracks changes related only to skills under ObsidianSkills, including new skill folders, SKILL.md files, and skill note updates.
 
