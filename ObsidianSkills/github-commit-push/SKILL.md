@@ -76,6 +76,6 @@ Always report:
 - Post-push status is shown.
 
 ## Related
-- [[Oladapo]]
+- [[ObsidianSkills/github-commit-push/github-commit-push|GitHub Commit and Push Skill Note]]
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]
 - [[ObsidianSkills/skill-format-guide/skill-format-guide|Skill Format Guide Note]]

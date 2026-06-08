@@ -52,7 +52,7 @@ Collect these before running this skill:
 5. Avoid duplicates and vague wording.
 
 ## Policy Reminder
-- Oladapo.md must link to folder-level skill note files, not to `SKILL.md` files.
+- Skill-Index.md must link to folder-level skill note files, not to `SKILL.md` files.
 - Skill-related changes under `ObsidianSkills` belong in `ObsidianSkills/skills-changelog.md`, not the top-level changelog.
 
 ## Validation Checklist
@@ -68,4 +68,4 @@ Collect these before running this skill:
 
 ## Related
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]
-- [[Oladapo]]
+- [[ObsidianSkills/changelog-maintenance/changelog-maintenance|Changelog Maintenance Skill Note]]

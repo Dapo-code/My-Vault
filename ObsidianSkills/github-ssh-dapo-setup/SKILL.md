@@ -73,6 +73,6 @@ bash /mnt/c/my-vault/ObsidianSkills/github-ssh-dapo-setup/scripts/restore_https_
 - `git push -u origin <branch>` succeeds.
 
 ## Related
-- [[Oladapo]]
+- [[ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup|GitHub SSH Dapo Setup Skill Note]]
 - [[ObsidianSkills/skill-format-guide/skill-format-guide|Skill Format Guide Note]]
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]

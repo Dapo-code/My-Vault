@@ -1,6 +1,6 @@
 ---
 name: skill-format-guide
-description: Create new vault skills using a parameter-driven standard folder structure, paired top-level note, and proper Oladapo indexing rules.
+description: Create new vault skills using a parameter-driven standard folder structure, paired top-level note, and proper Skill-Index indexing rules.
 ---
 
 # Skill Format Guide Skill
@@ -36,7 +36,7 @@ Collect these before creating any new skill files:
 - One paragraph for the paired skill note file.
 
 3. index_description
-- One-line description shown in Oladapo index.
+- One-line description shown in Skill-Index index.
 
 4. changelog_entry
 - Dated line for ObsidianSkills/skills-changelog.md.
@@ -47,6 +47,7 @@ Collect these before creating any new skill files:
 3. Normalize skill_name to lowercase with hyphens.
 4. Frontmatter name must match skill_name exactly.
 5. Use defaults only for optional parameters when not provided.
+6. In `SKILL.md`, the Related section must include the folder-level `<skill-name>.md` link and must not include `Skill-Index.md`.
 
 ## Required Structure
 For each new skill, create a folder under ObsidianSkills:
@@ -68,7 +69,7 @@ For each new skill, create a folder under ObsidianSkills:
 - Goal (from goal)
 - Steps (from steps)
 - Validation Checklist (from validation_checklist)
-- Related (optional, from related_links)
+- Related (include folder-level `<skill-name>.md` link; optional extra links from related_links)
 
 ## Top-Level Skill Note Format
 The <skill-name>.md note should include:
@@ -76,9 +77,9 @@ The <skill-name>.md note should include:
 2. A link to the local SKILL.md file.
 3. Optional related links.
 
-## Oladapo Index Policy
-1. Add links in Oladapo.md only to top-level skill note files.
-2. Never link Oladapo.md directly to any SKILL.md file.
+## Skill Index Policy
+1. Add links in Skill-Index.md only to top-level skill note files.
+2. Never link Skill-Index.md directly to any SKILL.md file.
 3. Keep one-line descriptions under each skill link (from index_description if provided).
 
 ## Creation Workflow
@@ -86,7 +87,7 @@ The <skill-name>.md note should include:
 2. Create skill folder and both files.
 3. Write SKILL.md from parameters.
 4. Write top-level skill note from parameters.
-5. Add only top-level note link to Oladapo.md.
+5. Add only top-level note link to Skill-Index.md.
 6. Add a dated entry to ObsidianSkills/skills-changelog.md.
 
 ## Validation Checklist
@@ -94,11 +95,12 @@ The <skill-name>.md note should include:
 - Skill folder contains both SKILL.md and <skill-name>.md.
 - SKILL.md frontmatter name matches folder name.
 - SKILL.md contains Goal, Steps, and Validation Checklist derived from parameters.
-- Oladapo.md links to <skill-name>.md only.
-- No Oladapo.md links point to SKILL.md files.
+- SKILL.md Related includes the local `<skill-name>.md` link.
+- SKILL.md Related does not link to Skill-Index.md.
+- Skill-Index.md links to <skill-name>.md only.
+- No Skill-Index.md links point to SKILL.md files.
 - ObsidianSkills/skills-changelog.md contains an entry for the addition.
 
 ## Related
-- [[Oladapo]]
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]
 - [[ObsidianSkills/skill-format-guide/skill-format-guide|Skill Format Guide Note]]

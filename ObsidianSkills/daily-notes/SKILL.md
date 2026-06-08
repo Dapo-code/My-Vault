@@ -82,7 +82,7 @@ updated: <YYYY-MM-DD>
 - 
 
 ## Links
-- [[Oladapo]]
+- [[ObsidianSkills/daily-notes/daily-notes|Daily Notes Skill Note]]
 ```
 
 ## Steps
@@ -100,8 +100,8 @@ updated: <YYYY-MM-DD>
 - Note contains priorities and a work log section.
 
 ## Policy Reminder
-- If this skill is indexed in Oladapo.md, the index must point to `daily-notes.md` and not `SKILL.md`.
+- If this skill is indexed in Skill-Index.md, the index must point to `daily-notes.md` and not `SKILL.md`.
 
 ## Related
-- [[Oladapo]]
+- [[ObsidianSkills/daily-notes/daily-notes|Daily Notes Skill Note]]
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]

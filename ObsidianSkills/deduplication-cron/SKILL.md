@@ -35,7 +35,7 @@ Collect these before running this skill:
 1. Always run `dry-run` first before first-time or changed schedules.
 2. Do not run `apply` if `vault_path` or `script_path` is missing.
 3. Preserve link safety by validating rewritten wiki links after merges.
-4. If indexed in Oladapo.md, link `deduplication-cron.md` and never `SKILL.md`.
+4. If indexed in Skill-Index.md, link `deduplication-cron.md` and never `SKILL.md`.
 
 ## Script
 - ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh
@@ -67,7 +67,7 @@ line='30 2 * * * /bin/bash /mnt/c/my-vault/ObsidianSkills/deduplication-cron/scr
 - Run dry run before enabling a new schedule.
 - Verify link rewrites after merge.
 - Log merge actions in changelog.md.
-- If this skill is indexed in Oladapo.md, link `deduplication-cron.md` and never link `SKILL.md` directly.
+- If this skill is indexed in Skill-Index.md, link `deduplication-cron.md` and never link `SKILL.md` directly.
 
 ## Steps
 1. Validate required parameters.
@@ -90,5 +90,5 @@ tail -n 50 /mnt/c/my-vault/logs/dedupe.log
 - Cron entry points to the expected script and vault path.
 
 ## Related
-- [[Oladapo]]
+- [[ObsidianSkills/deduplication-cron/deduplication-cron|Deduplication Cron Skill Note]]
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]

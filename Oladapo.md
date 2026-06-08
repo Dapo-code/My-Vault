@@ -2,6 +2,9 @@ This file contains the list of entries and links to files that are useful to me.
 
 ## Vault Skills Index
 
+- [[Skill-Index|Skill Index]]
+	Description: Canonical directory of all vault skills with links to each folder-level skill note and one-line summaries.
+
 - [[ObsidianSkills/index-update/index-update|Oladapo Index Update Skill]]
 	Description: Tells an agent exactly how to update this top-level index note, including link format, ordering, and summary descriptions.
 
