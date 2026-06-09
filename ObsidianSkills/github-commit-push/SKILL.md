@@ -39,6 +39,11 @@ Collect these before running this skill:
 3. When `stage_mode` is `selected`, `selected_paths` must be provided.
 4. When `push_mode` is `set-upstream`, `branch_name` must be provided.
 
+## Mode Selector
+- `fast`: User provides all required parameters; run workflow directly.
+- `standard`: Parameter gaps exist; ask concise clarifications, then run.
+- `deep`: Multiple branch or staging edge cases; require explicit user confirmation before execution.
+
 ## Required Rules Reference
 Always follow:
 - [[rules/github-rules/github-agent-rules|GitHub Agent Commit and Push Rules]]
@@ -67,6 +72,18 @@ Always report:
 2. Commit subject
 3. Branch pushed
 4. Final status (clean or dirty)
+
+## Output Contract
+- Mode: `<fast|standard|deep>`
+- Summary: 2-4 lines
+- Changes Made: staged files, commit subject, push command used
+- Validation: pass or fail with top issues
+- Next Actions: optional numbered list
+
+## Stop Rules
+1. Stop and ask if required parameters are missing.
+2. Stop before push when `confirm_before_push` is true.
+3. Stop and ask before deep mode execution.
 
 ## Validation Checklist
 - All required parameters were provided.

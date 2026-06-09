@@ -5,7 +5,7 @@ tags:
   - skills
   - vault
 created: 2026-06-08
-updated: 2026-06-08
+updated: 2026-06-09
 ---
 
 # Skills Change Log
@@ -21,6 +21,10 @@ Use this changelog for skill-specific updates such as:
 - Skill policy and workflow changes
 
 ## Entries
+
+- 2026-06-09: Removed `Work Log` from ObsidianSkills/skill-list.md and updated index policies so all skill-list changes are logged only in ObsidianSkills/skills-changelog.md.
+- 2026-06-09: Retrofitted operational skills to include Mode Selector, Output Contract, and Stop Rules for consistent low-token execution patterns.
+- 2026-06-09: Added token-optimization-standard skill and updated skill-format-guide so all new skills require mode selector, output contract, and low-token validation rules.
 
 - 2026-06-08: Created a dedicated changelog for skills under ObsidianSkills.
 - 2026-06-08: Updated changelog-maintenance policy and Oladapo index wording to route skill-related updates to the skills changelog.

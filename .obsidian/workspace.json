@@ -181,6 +181,11 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "ObsidianSkills/skill-list.md",
+    "My-Notes/monitor-note-analysis.md",
+    "ObsidianSkills/token-optimization-standard/token-optimization-standard.md",
+    "ObsidianSkills/token-optimization-standard/SKILL.md",
+    "ObsidianSkills/token-optimization-standard",
     "ObsidianSkills/deduplication-cron/SKILL.md",
     "Oladapo.md",
     "Skill-Index.md",
@@ -211,11 +216,6 @@
     "ObsidianSkills/index-update/SKILL.md",
     "ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh",
     "ObsidianSkills/daily-notes/legacy-skill-note.md",
-    "ObsidianSkills/deduplication-cron/legacy-skill-note.md",
-    "ObsidianSkills/changelog-maintenance/legacy-skill-note.md",
-    "ObsidianSkills/index-update/legacy-skill-note.md",
-    "ObsidianSkills/daily-notes",
-    "My-Notes/monitor-note-analysis.md",
-    "ObsidianSkills/deduplication-cron-skill.md"
+    "ObsidianSkills/deduplication-cron/legacy-skill-note.md"
   ]
 }

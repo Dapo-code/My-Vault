@@ -33,6 +33,11 @@ Collect these before running this skill:
 3. Keep each line to one sentence.
 4. Ensure every line starts with `- YYYY-MM-DD:`.
 
+## Mode Selector
+- `fast`: `entry_lines` and `target_file` are complete and valid.
+- `standard`: Minor ambiguity in routing or date; ask one concise clarification.
+- `deep`: Large batch updates across multiple notes; require explicit confirmation before append.
+
 ## Target
 - changelog.md under `## Entries`
 
@@ -51,17 +56,28 @@ Collect these before running this skill:
 4. Use factual language and include intent when `include_reason` is true.
 5. Avoid duplicates and vague wording.
 
+## Output Contract
+- Mode: `<fast|standard|deep>`
+- Summary: 2-4 lines
+- Changes Made: target file and appended lines
+- Validation: pass or fail with top issues
+- Next Actions: optional numbered list
+
+## Stop Rules
+1. Stop and ask if `entry_lines` is missing.
+2. Stop and ask if `target_file` routing is ambiguous.
+3. Stop and ask before deep mode execution.
+
 ## Policy Reminder
-- Skill-Index.md must link to folder-level skill note files, not to `SKILL.md` files.
+- ObsidianSkills/skill-list.md must include both folder-level skill note links and matching `Definition:` links to `SKILL.md` files.
 - Skill-related changes under `ObsidianSkills` belong in `ObsidianSkills/skills-changelog.md`, not the top-level changelog.
 
 ## Validation Checklist
 - All required parameters were provided.
 - Date uses `YYYY-MM-DD`.
-- Entry is one sentence.
-- Entry maps to a real, completed change.
+- Each entry is one sentence and maps to a completed change.
 - Entry is appended at the bottom.
-- Skill changes are logged in the skills changelog, not the top-level changelog.
+- Skill changes are logged in `ObsidianSkills/skills-changelog.md`.
 
 ## Output Format
 - List of newly added changelog lines.

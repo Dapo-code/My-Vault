@@ -35,7 +35,12 @@ Collect these before running this skill:
 1. Always run `dry-run` first before first-time or changed schedules.
 2. Do not run `apply` if `vault_path` or `script_path` is missing.
 3. Preserve link safety by validating rewritten wiki links after merges.
-4. If indexed in Skill-Index.md, link `deduplication-cron.md` and never `SKILL.md`.
+4. If indexed in ObsidianSkills/skill-list.md, include both `deduplication-cron.md` and `SKILL.md` links using `Skill:` and `Definition:` lines.
+
+## Mode Selector
+- `fast`: Run dry-run only and report findings.
+- `standard`: Dry-run plus apply after explicit approval.
+- `deep`: Apply plus cron schedule updates and post-merge troubleshooting; require explicit confirmation.
 
 ## Script
 - ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh
@@ -67,7 +72,7 @@ line='30 2 * * * /bin/bash /mnt/c/my-vault/ObsidianSkills/deduplication-cron/scr
 - Run dry run before enabling a new schedule.
 - Verify link rewrites after merge.
 - Log merge actions in changelog.md.
-- If this skill is indexed in Skill-Index.md, link `deduplication-cron.md` and never link `SKILL.md` directly.
+- If this skill is indexed in ObsidianSkills/skill-list.md, include both the `Skill:` link to `deduplication-cron.md` and the `Definition:` link to `SKILL.md`.
 
 ## Steps
 1. Validate required parameters.
@@ -76,6 +81,18 @@ line='30 2 * * * /bin/bash /mnt/c/my-vault/ObsidianSkills/deduplication-cron/scr
 4. Run `apply` only when approved.
 5. Configure cron with `cron_schedule` and `log_path` if automation is requested.
 6. Update changelog when `include_changelog_update` is true.
+
+## Output Contract
+- Mode: `<fast|standard|deep>`
+- Summary: 2-4 lines
+- Changes Made: dry-run/apply results, cron updates, files affected
+- Validation: pass or fail with top issues
+- Next Actions: optional numbered list
+
+## Stop Rules
+1. Stop and ask if required parameters are missing.
+2. Stop before `apply` when dry-run has not completed.
+3. Stop and ask before deep mode execution.
 
 ## Verification
 ```bash

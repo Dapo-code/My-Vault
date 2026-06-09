@@ -40,6 +40,11 @@ Collect these before running this skill:
 3. Do not modify authentication behavior for unrelated repositories.
 4. Use rollback script when restoration to HTTPS is requested.
 
+## Mode Selector
+- `fast`: Required parameters are complete and user wants setup flow only.
+- `standard`: Includes optional test/rollback decisions; ask concise clarifications.
+- `deep`: Mixed setup, rollback, and push-test troubleshooting; require explicit confirmation before actions.
+
 ## Scripts
 - ObsidianSkills/github-ssh-dapo-setup/scripts/setup_repo_ssh_identity.sh
 - ObsidianSkills/github-ssh-dapo-setup/scripts/restore_https_remote.sh
@@ -66,7 +71,19 @@ bash /mnt/c/my-vault/ObsidianSkills/github-ssh-dapo-setup/scripts/restore_https_
 - Updates this repository's `origin` remote to that alias only.
 - Tests SSH authentication and optionally pushes current branch.
 
-## Validation
+## Output Contract
+- Mode: `<fast|standard|deep>`
+- Summary: 2-4 lines
+- Changes Made: config updates, remote change, tests executed
+- Validation: pass or fail with top issues
+- Next Actions: optional numbered list
+
+## Stop Rules
+1. Stop and ask if required script paths are missing.
+2. Stop before any destructive rollback unless user requested it.
+3. Stop and ask before deep mode execution.
+
+## Validation Checklist
 - All required parameters were provided.
 - `git remote -v` in this repo shows `git@github-dapo-code:...`.
 - `ssh -T git@github-dapo-code` authenticates as the correct account.

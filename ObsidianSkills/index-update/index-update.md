@@ -6,7 +6,7 @@ updated: 2026-06-08
 
 # Index Update
 
-Simple description: Maintains Oladapo.md as the top-level index.
+Simple description: Maintains ObsidianSkills/skill-list.md as the canonical skill index.
 
 ## Guide
 - [[ObsidianSkills/skill-format-guide/skill-format-guide|Skill Format Guide Note]]
