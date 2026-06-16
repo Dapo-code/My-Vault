@@ -181,6 +181,12 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "My-Notes/PET-AI/pet-ai.md",
+    "My-Notes/PET-AI",
+    "My-Notes/Composer/dags/test_cloud_run_connection.py",
+    "My-Notes/Composer/dags",
+    "My-Notes/Composer/cloud-composer.md",
+    "My-Notes/Composer",
     "ObsidianSkills/deduplication-cron/SKILL.md",
     "ObsidianSkills/deduplication-cron/deduplication-cron.md",
     "ObsidianSkills/index-update/SKILL.md",
@@ -204,18 +210,12 @@
     "ObsidianSkills/github-ssh-dapo-setup/scripts/setup_repo_ssh_identity.sh",
     "ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup.md",
     "ObsidianSkills/github-ssh-dapo-setup/SKILL.md",
-    "ObsidianSkills/github-ssh-dapo-setup/scripts",
-    "ObsidianSkills/github-ssh-dapo-setup",
     "ObsidianSkills/skill.md",
     "ObsidianSkills/daily-notes-skill.md",
     "ObsidianSkills/skills-changelog.md",
     "ObsidianSkills/skill-format-guide/skill-format-guide.md",
-    "ObsidianSkills/skill-format-guide",
     "ObsidianSkills/changelog-maintenance/changelog-maintenance.md",
     "ObsidianSkills/index-update/index-update.md",
-    "ObsidianSkills/daily-notes/SKILL.md",
-    "ObsidianSkills/deduplication-cron/scripts/deduplicate_notes_and_skills.sh",
-    "ObsidianSkills/daily-notes/legacy-skill-note.md",
-    "ObsidianSkills/deduplication-cron/legacy-skill-note.md"
+    "ObsidianSkills/daily-notes/SKILL.md"
   ]
 }
