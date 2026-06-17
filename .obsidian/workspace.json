@@ -181,6 +181,13 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "My-Notes/Azure/Storage-Account/vm-connectivity-test copy.md",
+    "My-Notes/Azure/Storage-Account/storage-network-rules.skill copy.md",
+    "My-Notes/Azure/Storage-Account/privateendpoint copy.md",
+    "My-Notes/Azure/Storage-Account/configure-storage-network-rules copy.sh",
+    "My-Notes/Azure/Storage-Account/ablprodsqlwitness3-dns-link-instructions copy.md",
+    "My-Notes/Azure/Storage-Account",
+    "My-Notes/Azure",
     "My-Notes/PET-AI/pet-ai.md",
     "My-Notes/PET-AI",
     "My-Notes/Composer/dags/test_cloud_run_connection.py",
@@ -205,17 +212,10 @@
     "ObsidianSkills/github-commit-push",
     "rules/github-rules/github-agent-rules.md",
     "rules/github-rules",
-    "rules",
-    "ObsidianSkills/github-ssh-dapo-setup/scripts/restore_https_remote.sh",
-    "ObsidianSkills/github-ssh-dapo-setup/scripts/setup_repo_ssh_identity.sh",
     "ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup.md",
     "ObsidianSkills/github-ssh-dapo-setup/SKILL.md",
     "ObsidianSkills/skill.md",
     "ObsidianSkills/daily-notes-skill.md",
-    "ObsidianSkills/skills-changelog.md",
-    "ObsidianSkills/skill-format-guide/skill-format-guide.md",
-    "ObsidianSkills/changelog-maintenance/changelog-maintenance.md",
-    "ObsidianSkills/index-update/index-update.md",
-    "ObsidianSkills/daily-notes/SKILL.md"
+    "ObsidianSkills/skills-changelog.md"
   ]
 }
