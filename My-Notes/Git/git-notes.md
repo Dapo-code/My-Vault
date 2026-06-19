@@ -20,8 +20,9 @@ updated: 2026-06-16
     - git commit -m "chore: update shared submodule to latest main"
 
 ## Git logs
-* getting the logs in a pretty format
+* getting the logs in a pretty format: this gives you the list of commits from the first history
     - git log --pretty=format:"-%s" --reverse 
+    - git log --pretty=format:"% - %s (%an, %ar)" --reverse
 
 ## Links
 - [[ObsidianSkills/daily-notes/daily-notes|Daily Notes Skill Note]]

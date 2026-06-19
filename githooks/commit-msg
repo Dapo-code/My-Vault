@@ -3,12 +3,12 @@ set -euo pipefail
 
 msg_file="$1"
 first_line="$(head -n 1 "$msg_file" | tr -d '\r')"
-pattern='^(SKILL UPDATE|DOC UPDATE|FIX|CHORE): .+'
+pattern='^(SKILL|DOC|FIX|CHORE|FEAT): .+'
 
 if [[ ! "$first_line" =~ $pattern ]]; then
   echo "Invalid commit message."
   echo "Required format: PREFIX: summary"
-  echo "Allowed PREFIX values: SKILL UPDATE | DOC UPDATE | FIX | CHORE"
-  echo "Example: DOC UPDATE: update composer notes"
+  echo "Allowed PREFIX values: SKILL | DOC | FIX | CHORE | FEAT"
+  echo "Example: DOC: update composer notes"
   exit 1
 fi
