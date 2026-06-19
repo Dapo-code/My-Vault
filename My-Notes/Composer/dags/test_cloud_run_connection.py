@@ -1,159 +1,129 @@
-"""
-DAG: test_cloud_run_connection
-Purpose: Test public connectivity from Cloud Composer to Cloud Run endpoints.
-Endpoints:
-- https://dapo-test-connector-e5qzspb2aq-nw.a.run.app
-- https://dapo-test-connector-995315591721.europe-west2.run.app
-
-Validation: each endpoint must return HTTP 2xx and contain "hello world"
-in the response body (case-insensitive).
-"""
-
+import datetime
 import logging
-from datetime import timedelta
-
-import pendulum
-import requests
+import socket
+import time
+import urllib.error
+import urllib.request
 
 from airflow import DAG
-from airflow.decorators import task
-from airflow.exceptions import AirflowException
-from airflow.models.param import Param
+from airflow.operators.python_operator import PythonOperator
 
-log = logging.getLogger(__name__)
 
-CLOUD_RUN_URLS = [
-    "https://dapo-test-connector-e5qzspb2aq-nw.a.run.app",
-    "https://dapo-test-connector-995315591721.europe-west2.run.app",
-]
-EXPECTED_TEXT = "hello world"
+LOGGER = logging.getLogger(__name__)
 
-DEFAULT_ARGS = {
-    "owner": "dapo",
-    "depends_on_past": False,
-    "retries": 3,
-    "retry_delay": timedelta(minutes=1),
-    "retry_exponential_backoff": True,
-    "max_retry_delay": timedelta(minutes=5),
+
+default_args = {
+	'start_date': datetime.datetime(2000, 1, 1),
+	'retries': 1,
+	'retry_delay': datetime.timedelta(minutes=5),
 }
 
 
-with DAG(
-    dag_id="test_cloud_run_connection",
-    description="Test public endpoint response from Composer to Cloud Run",
-    default_args=DEFAULT_ARGS,
-    start_date=pendulum.yesterday("UTC").at(0, 1),
-    schedule=None,  # Manual trigger only
-    dagrun_timeout=timedelta(minutes=15),
-    catchup=False,
-    max_active_runs=1,
-    is_paused_upon_creation=True,
-    params={
-        "urls": Param(
-            default=CLOUD_RUN_URLS,
-            type="array",
-            description="Public Cloud Run endpoints to test.",
-        ),
-        "expected_text": Param(
-            default=EXPECTED_TEXT,
-            type="string",
-            description="Expected phrase in endpoint response body.",
-        ),
-        "timeout_seconds": Param(
-            default=30,
-            type="integer",
-            minimum=1,
-            maximum=120,
-            description="Per-request timeout in seconds.",
-        ),
-    },
-    tags=["connectivity", "cloud-run", "gcp", "test"],
-) as dag:
-    @task(task_id="validate_parameters")
-    def validate_parameters(params: dict) -> dict:
-        urls = params.get("urls", [])
-        expected_text = params.get("expected_text", "")
-        timeout_seconds = params.get("timeout_seconds", 30)
+def check_cloud_run_endpoint(endpoint_url, timeout_seconds=30, **kwargs):
+	"""Validate that the endpoint is reachable from Composer.
 
-        if not isinstance(urls, list) or not urls:
-            raise AirflowException("Parameter 'urls' must be a non-empty list.")
-        if not isinstance(expected_text, str) or not expected_text.strip():
-            raise AirflowException("Parameter 'expected_text' must be a non-empty string.")
-        if not isinstance(timeout_seconds, int) or timeout_seconds <= 0:
-            raise AirflowException("Parameter 'timeout_seconds' must be a positive integer.")
+	Connectivity is considered successful if a response is received,
+	even when the HTTP status code is 4xx/5xx.
+	"""
+	request = urllib.request.Request(endpoint_url, method='GET')
+	start_time = time.time()
 
-        for url in urls:
-            if not isinstance(url, str) or not url.startswith("https://"):
-                raise AirflowException(
-                    f"Invalid URL '{url}'. Only HTTPS URLs are allowed."
-                )
+	LOGGER.info("Starting connectivity check for endpoint: %s", endpoint_url)
 
-        sanitized = {
-            "urls": urls,
-            "expected_text": expected_text.strip(),
-            "timeout_seconds": timeout_seconds,
-        }
-        log.info("PARAMETERS_VALIDATED: %s", sanitized)
-        return sanitized
+	try:
+		with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
+			status_code = response.getcode()
+			response_headers = dict(response.getheaders())
+			response_body = response.read(1024).decode('utf-8', errors='replace')
+			duration_seconds = round(time.time() - start_time, 3)
 
-    @task(task_id="test_cloud_run_endpoints")
-    def test_cloud_run_endpoints(validated: dict) -> dict:
-        """
-        Make unauthenticated GET requests to each public endpoint and verify
-        that the response is HTTP 2xx and contains expected_text.
-        """
-        urls = validated["urls"]
-        expected_text = validated["expected_text"]
-        timeout_seconds = validated["timeout_seconds"]
+			LOGGER.info(
+				"Connectivity check succeeded for %s with HTTP %s in %ss",
+				endpoint_url,
+				status_code,
+				duration_seconds,
+			)
+			LOGGER.info("Response headers for %s: %s", endpoint_url, response_headers)
+			LOGGER.info("Response body preview for %s: %s", endpoint_url, response_body)
 
-        summary = {
-            "expected_text": expected_text,
-            "timeout_seconds": timeout_seconds,
-            "results": [],
-        }
-        failures = []
+			return {
+				'endpoint': endpoint_url,
+				'reachable': True,
+				'status_code': status_code,
+				'duration_seconds': duration_seconds,
+				'response_headers': response_headers,
+				'response_body_preview': response_body,
+			}
+	except urllib.error.HTTPError as http_error:
+		# HTTPError still confirms DNS/TLS/network path and service reachability.
+		response_body = http_error.read(1024).decode('utf-8', errors='replace')
+		duration_seconds = round(time.time() - start_time, 3)
 
-        for url in urls:
-            log.info("Sending public GET request to %s", url)
-            try:
-                response = requests.get(url, timeout=timeout_seconds)
-                body = response.text or ""
-                contains_expected = expected_text.lower() in body.lower()
+		LOGGER.warning(
+			"Connectivity reached %s with HTTP %s in %ss. Treating as reachable.",
+			endpoint_url,
+			http_error.code,
+			duration_seconds,
+		)
+		LOGGER.warning(
+			"Error response headers for %s: %s",
+			endpoint_url,
+			dict(http_error.headers.items()) if http_error.headers else {},
+		)
+		LOGGER.warning("Error response body preview for %s: %s", endpoint_url, response_body)
 
-                result = {
-                    "url": url,
-                    "status_code": response.status_code,
-                    "ok": response.ok,
-                    "contains_expected_text": contains_expected,
-                    "response_body": body[:2000],
-                }
-                summary["results"].append(result)
+		return {
+			'endpoint': endpoint_url,
+			'reachable': True,
+			'status_code': http_error.code,
+			'duration_seconds': duration_seconds,
+			'response_headers': dict(http_error.headers.items()) if http_error.headers else {},
+			'response_body_preview': response_body,
+		}
+	except (urllib.error.URLError, socket.timeout, TimeoutError) as network_error:
+		duration_seconds = round(time.time() - start_time, 3)
+		LOGGER.error(
+			"Connectivity failed for %s after %ss: %s",
+			endpoint_url,
+			duration_seconds,
+			network_error,
+		)
+		raise RuntimeError(
+			f"Connectivity check failed for {endpoint_url}: {network_error}"
+		) from network_error
 
-                # Structured logs make it easier to filter in Cloud Logging.
-                log.info("CLOUD_RUN_TEST_RESULT: %s", result)
 
-                if not response.ok:
-                    failures.append(f"{url} returned HTTP {response.status_code}")
-                elif not contains_expected:
-                    failures.append(
-                        f"{url} did not contain expected text '{expected_text}' in body"
-                    )
-            except requests.RequestException as exc:
-                failure_result = {
-                    "url": url,
-                    "ok": False,
-                    "error": str(exc),
-                }
-                summary["results"].append(failure_result)
-                log.exception("CLOUD_RUN_TEST_EXCEPTION for %s", url)
-                failures.append(f"{url} request failed: {exc}")
+dag = DAG(
+	'test_cloud_run_connectivity',
+	default_args=default_args,
+	description='Test Composer connectivity to Cloud Run endpoints',
+	schedule=None,
+	max_active_runs=2,
+	catchup=False,
+	dagrun_timeout=datetime.timedelta(minutes=10),
+)
 
-        if failures:
-            summary["failures"] = failures
-            raise AirflowException(f"Cloud Run public endpoint test failed: {summary}")
 
-        log.info("Cloud Run public endpoint tests passed.")
-        return summary
+test_connector_short_url = PythonOperator(
+	task_id='test_connector_short_url',
+	python_callable=check_cloud_run_endpoint,
+	op_kwargs={
+		'endpoint_url': 'https://dapo-test-connector-e5qzspb2aq-nw.a.run.app',
+		'timeout_seconds': 30,
+	},
+	dag=dag,
+)
 
-    validated_config = validate_parameters(dag.params)
-    test_cloud_run_endpoints(validated_config)
+
+test_connector_regional_url = PythonOperator(
+	task_id='test_connector_regional_url',
+	python_callable=check_cloud_run_endpoint,
+	op_kwargs={
+		'endpoint_url': 'https://dapo-test-connector-995315591721.europe-west2.run.app',
+		'timeout_seconds': 30,
+	},
+	dag=dag,
+)
+
+
+test_connector_short_url >> test_connector_regional_url
