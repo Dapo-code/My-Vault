@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "[pre-commit] Running checks..."
+
+# Check for unresolved merge markers in staged files.
+staged_files="$(git diff --cached --name-only --diff-filter=ACMR)"
+if [[ -n "${staged_files}" ]]; then
+  if git diff --cached --check >/dev/null 2>&1; then
+    :
+  else
+    echo "[pre-commit] Failed: whitespace or conflict marker issues detected in staged changes."
+    echo "[pre-commit] Run: git diff --cached --check"
+    exit 1
+  fi
+fi
+
+echo "[pre-commit] Passed."
