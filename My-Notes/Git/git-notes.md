@@ -19,6 +19,9 @@ updated: 2026-06-16
     - git add Terraform/shared
     - git commit -m "chore: update shared submodule to latest main"
 
+## Prune branches
+- git branch | grep -v -E "(main|master|develop|\*)" | xargs git branch -d
+
 ## Git logs
 * getting the logs in a pretty format: this gives you the list of commits from the first history
     - git log --pretty=format:"-%s" --reverse 
