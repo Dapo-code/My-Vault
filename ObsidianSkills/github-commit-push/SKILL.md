@@ -12,7 +12,7 @@ Commit and push changes safely and consistently whenever the user asks, using a 
 Collect these before running this skill:
 
 1. commit_prefix
-- One of: `SKILL UPDATE`, `DOC UPDATE`, `FIX`, `CHORE`.
+- One of: `SKILL`, `DOC`, `FIX`, `CHORE`, `FEAT` (single word — enforced by the `commit-msg` hook).
 
 2. commit_summary
 - Short description used after the prefix.
@@ -52,11 +52,12 @@ Always follow:
 Use:
 - `<PREFIX>: <what was updated>`
 
-Preferred prefixes:
-- `SKILL UPDATE` for changes under `ObsidianSkills` (especially skill files).
-- `DOC UPDATE` for general note or documentation updates.
+Preferred prefixes (single word — the `commit-msg` hook rejects anything else):
+- `SKILL` for changes under `ObsidianSkills` (especially skill files).
+- `DOC` for general note or documentation updates.
 - `FIX` for bug fixes.
 - `CHORE` for maintenance-only updates.
+- `FEAT` for new capabilities (new skills, rules, scripts, or automation).
 
 ## Workflow
 1. Validate required parameters.

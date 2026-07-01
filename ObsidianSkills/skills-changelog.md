@@ -22,6 +22,7 @@ Use this changelog for skill-specific updates such as:
 
 ## Entries
 
+- 2026-07-01: Aligned github-commit-push SKILL.md commit prefixes with the `commit-msg` hook — single-word `SKILL`/`DOC`/`FIX`/`CHORE`/`FEAT` (was `SKILL UPDATE`/`DOC UPDATE`); mirrored in github-agent-rules and CLAUDE.md.
 - 2026-06-09: Removed `Work Log` from ObsidianSkills/skill-list.md and updated index policies so all skill-list changes are logged only in ObsidianSkills/skills-changelog.md.
 - 2026-06-09: Retrofitted operational skills to include Mode Selector, Output Contract, and Stop Rules for consistent low-token execution patterns.
 - 2026-06-09: Added token-optimization-standard skill and updated skill-format-guide so all new skills require mode selector, output contract, and low-token validation rules.

@@ -27,23 +27,29 @@ Apply these rules whenever the user asks any variant of:
 
 # Commit Message Structure
 
-Use one-line subject with uppercase prefix.
+Use one-line subject with a single-word uppercase prefix.
 
 Format:
 `<PREFIX>: <what was updated>`
 
+The repository `commit-msg` hook is authoritative and accepts **only** these prefixes:
+`SKILL` | `DOC` | `FIX` | `CHORE` | `FEAT`. A prefix with a trailing word (e.g. `DOC UPDATE`)
+will be rejected.
+
 Examples:
-- `SKILL UPDATE: add github ssh setup skill and scripts`
-- `SKILL UPDATE: refine daily-notes SKILL instructions`
-- `DOC UPDATE: revise Oladapo note links`
+- `SKILL: add github ssh setup skill and scripts`
+- `SKILL: refine daily-notes SKILL instructions`
+- `DOC: revise Oladapo note links`
 - `FIX: correct path handling in deduplicate script`
+- `FEAT: add condensed PET-AI agent rules`
 
 # Prefix Selection Rules
 
-1. Use `SKILL UPDATE` when any `SKILL.md` or skill note is changed under `ObsidianSkills/`.
-2. Use `DOC UPDATE` for markdown/content changes not primarily skill logic.
+1. Use `SKILL` when any `SKILL.md` or skill note is changed under `ObsidianSkills/`.
+2. Use `DOC` for markdown/content changes not primarily skill logic.
 3. Use `FIX` for bug fixes in scripts or automation.
 4. Use `CHORE` for maintenance-only changes (formatting, renames, metadata cleanup).
+5. Use `FEAT` for new capabilities (new skills, rules, scripts, or automation).
 
 # Recommended Commit Body (when helpful)
 

@@ -94,7 +94,7 @@ updated: YYYY-MM-DD
 ## Git
 
 Follow [`rules/github-rules/github-agent-rules.md`](rules/github-rules/github-agent-rules.md) and the
-`github-commit-push` skill. Commit messages use a prefix: `SKILL UPDATE`, `DOC UPDATE`, `FIX`, `CHORE`.
+`github-commit-push` skill. Commit messages use a single-word prefix enforced by the `commit-msg` hook: `SKILL`, `DOC`, `FIX`, `CHORE`, `FEAT`.
 Only commit/push when the user asks. Log meaningful changes via the `changelog-maintenance` skill —
 non-skill changes to `changelog.md`, skill changes to `ObsidianSkills/skills-changelog.md`.
 
