@@ -6,7 +6,7 @@ tags:
   - jira
   - workflow
 created: 2026-06-12
-updated: 2026-06-12
+updated: 2026-07-01
 status: draft
 ---
 
@@ -34,6 +34,10 @@ python3 /home/dapo/desktop/allica-repo/PET-AI-Rules/scripts/setup-ai-rules/setup
 
 
 ## Related Notes
+- [[rules/jira-rules/jira-agent-rules|Jira Ticket Creation Agent Rules]]
+- [[rules/jira-rules/cmw-change-request-rules|CMW Change Request Agent Rules]]
+- [[rules/mcp-rules/mcp-agent-rules|MCP Connection Agent Rules]]
+- [[rules/terraform-rules/terraform-agent-rules|Terraform Agent Rules]]
 - [[My-Notes/mid-year-review/2026-06-11-midyear-review|Mid-Year Review 2026]]
 - [[My-Notes/my-notes|My Notes Folder Guide]]
 - [[Oladapo|Top-Level Index]]

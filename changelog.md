@@ -12,6 +12,7 @@ Track structural and index updates across the vault.
 
 ## Entries
 
+- 2026-07-01: Added condensed agent-behaviour rules under `rules/jira-rules` (ticket creation + CMW change requests), `rules/mcp-rules`, and `rules/terraform-rules`, mirroring the canonical PET-AI-Rules repo with internal identifiers and PII abbreviated; each rule states the full source-repo path (`/home/dapo/desktop/allica-repo/PET-AI-Rules`); indexed them in CLAUDE.md and cross-linked from the PET-AI note.
 - 2026-06-08: Added descriptions for skill links, moved skill notes into ObsidianSkills, and added index maintenance guidance.
 - 2026-06-08: Added a dedicated changelog maintenance skill and linked it in Oladapo.md to standardize future log entries.
 - 2026-06-08: Added a standard Cross-Links section to all skill notes and updated index maintenance rules to require it.

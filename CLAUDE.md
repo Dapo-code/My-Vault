@@ -47,6 +47,23 @@ is the single source of truth. Keep the skill table below and `copilot-instructi
 | Set up GitHub SSH | `ObsidianSkills/github-ssh-dapo-setup/SKILL.md` |
 | Token/output optimization | `ObsidianSkills/token-optimization-standard/SKILL.md` |
 
+## Agent rules
+
+Behaviour rules live under `rules/`. Read the matching rule before acting on that workflow.
+
+| Workflow | Rule Path |
+|---|---|
+| Commit and push to GitHub | `rules/github-rules/github-agent-rules.md` |
+| Create/update Jira tickets (PET) | `rules/jira-rules/jira-agent-rules.md` |
+| Raise a CMW change request | `rules/jira-rules/cmw-change-request-rules.md` |
+| Use MCP servers (Atlassian, PET-AI-Rules) | `rules/mcp-rules/mcp-agent-rules.md` |
+| Terraform work in PET repos | `rules/terraform-rules/terraform-agent-rules.md` |
+
+The Jira/CMW/MCP/Terraform rules are condensed mirrors of the canonical **PET-AI-Rules** repo,
+which remains the source of truth. Full rules live at the local path
+`/home/dapo/desktop/allica-repo/PET-AI-Rules` (`rules/jira/`, `rules/mcp/`, `rules/terraform/`,
+`rules/templates/`) — agents should read the matching source file there for full detail.
+
 ## Frontmatter standard
 
 Every note requires YAML frontmatter with these fields:
