@@ -5,7 +5,7 @@ tags:
   - skills
   - vault
 created: 2026-06-08
-updated: 2026-06-09
+updated: 2026-08-06
 ---
 
 # Skills Change Log
@@ -22,6 +22,9 @@ Use this changelog for skill-specific updates such as:
 
 ## Entries
 
+- 2026-08-06: Added `vm-container-health-check` skill — SSH into Azure VMs via `az ssh vm` and inspect Docker container health (read-only). Captures lessons from live troubleshooting: use `sudo docker ps` (plain docker ps hits permission denied), upgrade az ssh extension for ARC VMs < 2.0.4.
+- 2026-07-03: Added `update_repo_list.sh` to the allica-repo-locations skill — regenerates the marker-delimited repo list in SKILL.md and is scheduled weekly via cron (Mondays 03:00, logs to `logs/repo-list-refresh.log`).
+- 2026-07-01: Added allica-repo-locations skill recording the local Allica platform (PET) repo root `/home/dapo/desktop/allica-repo`; indexed in skill-list.md and CLAUDE.md.
 - 2026-07-01: Aligned github-commit-push SKILL.md commit prefixes with the `commit-msg` hook — single-word `SKILL`/`DOC`/`FIX`/`CHORE`/`FEAT` (was `SKILL UPDATE`/`DOC UPDATE`); mirrored in github-agent-rules and CLAUDE.md.
 - 2026-06-09: Removed `Work Log` from ObsidianSkills/skill-list.md and updated index policies so all skill-list changes are logged only in ObsidianSkills/skills-changelog.md.
 - 2026-06-09: Retrofitted operational skills to include Mode Selector, Output Contract, and Stop Rules for consistent low-token execution patterns.

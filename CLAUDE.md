@@ -46,6 +46,7 @@ is the single source of truth. Keep the skill table below and `copilot-instructi
 | Commit and push to GitHub | `ObsidianSkills/github-commit-push/SKILL.md` |
 | Set up GitHub SSH | `ObsidianSkills/github-ssh-dapo-setup/SKILL.md` |
 | Token/output optimization | `ObsidianSkills/token-optimization-standard/SKILL.md` |
+| Locate Allica platform (PET) repos | `ObsidianSkills/allica-repo-locations/SKILL.md` |
 
 ## Agent rules
 

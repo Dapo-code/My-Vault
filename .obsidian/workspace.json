@@ -11,10 +11,14 @@
             "id": "c3f5e5c32bdf7155",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "My-Notes/Git/git-notes.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "git-notes"
             }
           }
         ]
@@ -181,6 +185,11 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "My-Notes/PET-AI/pet-ai.md",
+    "My-Notes/my-notes.md",
+    "My-Notes/Git/git-notes.md",
+    "ObsidianSkills/skill-format-guide/skill-format-guide.md",
+    "ObsidianSkills/daily-notes/daily-notes.md",
     "My-Notes/Azure/Storage-Account/vm-connectivity-test copy.md",
     "My-Notes/Azure/Storage-Account/storage-network-rules.skill copy.md",
     "My-Notes/Azure/Storage-Account/privateendpoint copy.md",
@@ -188,7 +197,6 @@
     "My-Notes/Azure/Storage-Account/ablprodsqlwitness3-dns-link-instructions copy.md",
     "My-Notes/Azure/Storage-Account",
     "My-Notes/Azure",
-    "My-Notes/PET-AI/pet-ai.md",
     "My-Notes/PET-AI",
     "My-Notes/Composer/dags/test_cloud_run_connection.py",
     "My-Notes/Composer/dags",
@@ -206,16 +214,12 @@
     "ObsidianSkills/token-optimization-standard/SKILL.md",
     "ObsidianSkills/token-optimization-standard",
     "ObsidianSkills/changelog-maintenance/SKILL.md",
-    "ObsidianSkills/daily-notes/daily-notes.md",
     "ObsidianSkills/github-commit-push/SKILL.md",
     "ObsidianSkills/github-commit-push/github-commit-push.md",
     "ObsidianSkills/github-commit-push",
     "rules/github-rules/github-agent-rules.md",
     "rules/github-rules",
     "ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup.md",
-    "ObsidianSkills/github-ssh-dapo-setup/SKILL.md",
-    "ObsidianSkills/skill.md",
-    "ObsidianSkills/daily-notes-skill.md",
-    "ObsidianSkills/skills-changelog.md"
+    "ObsidianSkills/github-ssh-dapo-setup/SKILL.md"
   ]
 }

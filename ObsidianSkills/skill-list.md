@@ -5,7 +5,7 @@ tags:
   - index
   - vault
 created: 2026-06-09
-updated: 2026-06-09
+updated: 2026-08-06
 ---
 
 # Skill List
@@ -54,6 +54,14 @@ Simple description: Canonical skills index with links to both each skill note an
 - Skill: [[ObsidianSkills/github-commit-push/github-commit-push|GitHub Commit and Push Skill]]
 	Description: Enforces a consistent git interaction workflow with required commit prefixes and references repository GitHub rules before committing and pushing.
 	Definition: [[ObsidianSkills/github-commit-push/SKILL|Open SKILL.md]]
+
+- Skill: [[ObsidianSkills/allica-repo-locations/allica-repo-locations|Allica Repo Locations Skill]]
+	Description: Points the agent to where the Allica platform (PET) repositories are checked out locally so it can find, read, or clone them without searching the filesystem.
+	Definition: [[ObsidianSkills/allica-repo-locations/SKILL|Open SKILL.md]]
+
+- Skill: [[ObsidianSkills/vm-container-health-check/vm-container-health-check|VM Container Health Check Skill]]
+	Description: SSH into an Azure VM via az ssh and inspect running Docker containers for health — read-only, no remediation actions.
+	Definition: [[ObsidianSkills/vm-container-health-check/SKILL|Open SKILL.md]]
 
 ## Links
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]
