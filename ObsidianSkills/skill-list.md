@@ -5,7 +5,7 @@ tags:
   - index
   - vault
 created: 2026-06-09
-updated: 2026-08-06
+updated: 2026-08-13
 ---
 
 # Skill List
@@ -62,6 +62,10 @@ Simple description: Canonical skills index with links to both each skill note an
 - Skill: [[ObsidianSkills/vm-container-health-check/vm-container-health-check|VM Container Health Check Skill]]
 	Description: SSH into an Azure VM via az ssh and inspect running Docker containers for health — read-only, no remediation actions.
 	Definition: [[ObsidianSkills/vm-container-health-check/SKILL|Open SKILL.md]]
+
+- Skill: [[ObsidianSkills/work-log/work-log|Work Log Skill]]
+	Description: Create, update, or close a branch work-log note for an Allica repo branch — records Jira ticket, work summary, and PR link in My-Notes/Work-Log/<repo>/<branch>.md.
+	Definition: [[ObsidianSkills/work-log/SKILL|Open SKILL.md]]
 
 ## Links
 - [[ObsidianSkills/skills-changelog|Skills Change Log]]

@@ -17,6 +17,7 @@ Before creating notes, files, or running any vault workflow, always check `Obsid
 | Commit and push to GitHub | `ObsidianSkills/github-commit-push/SKILL.md` |
 | Set up GitHub SSH | `ObsidianSkills/github-ssh-dapo-setup/SKILL.md` |
 | Token/output optimization | `ObsidianSkills/token-optimization-standard/SKILL.md` |
+| Log branch work (ticket, summary, PR) | `ObsidianSkills/work-log/SKILL.md` |
 
 ## Rules
 - Read the matching SKILL.md before acting — do not guess at format or structure.

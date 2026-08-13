@@ -5,7 +5,7 @@ tags:
   - skills
   - vault
 created: 2026-06-08
-updated: 2026-08-06
+updated: 2026-08-13
 ---
 
 # Skills Change Log
@@ -22,6 +22,7 @@ Use this changelog for skill-specific updates such as:
 
 ## Entries
 
+- 2026-08-13: Added `work-log` skill — per-branch work-log notes auto-created by a `post-checkout` git hook across all Allica repos; agent fills in Jira ticket, work summary, PR link. Includes `create_branch_note.sh`, `install_hooks.sh`, `sync_hooks.sh` (cron daily 07:00). Notes at `My-Notes/Work-Log/<repo>/<branch>.md`.
 - 2026-08-06: Added `vm-container-health-check` skill — SSH into Azure VMs via `az ssh vm` and inspect Docker container health (read-only). Captures lessons from live troubleshooting: use `sudo docker ps` (plain docker ps hits permission denied), upgrade az ssh extension for ARC VMs < 2.0.4.
 - 2026-07-03: Added `update_repo_list.sh` to the allica-repo-locations skill — regenerates the marker-delimited repo list in SKILL.md and is scheduled weekly via cron (Mondays 03:00, logs to `logs/repo-list-refresh.log`).
 - 2026-07-01: Added allica-repo-locations skill recording the local Allica platform (PET) repo root `/home/dapo/desktop/allica-repo`; indexed in skill-list.md and CLAUDE.md.
