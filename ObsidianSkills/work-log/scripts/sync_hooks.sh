@@ -16,7 +16,7 @@ read -r -d '' HOOK_CONTENT <<'HOOK' || true
 # post-checkout: create vault work-log stub
 [ "$3" = "1" ] || exit 0
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-case "$BRANCH" in main|master|develop|development) exit 0 ;; esac
+case "$BRANCH" in main|master|develop|development|HEAD) exit 0 ;; esac
 REPO=$(basename "$(git rev-parse --show-toplevel)")
 SCRIPT="/mnt/c/my-vault/ObsidianSkills/work-log/scripts/create_branch_note.sh"
 [ -x "$SCRIPT" ] && bash "$SCRIPT" "$REPO" "$BRANCH"

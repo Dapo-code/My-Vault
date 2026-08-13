@@ -8,6 +8,7 @@ set -euo pipefail
 
 REPO_ROOT="/home/dapo/desktop/allica-repo"
 APPLY=0
+FORCE=0
 
 HOOK_SIGNATURE="# post-checkout: create vault work-log stub"
 
@@ -17,21 +18,23 @@ read -r -d '' HOOK_CONTENT <<'HOOK' || true
 # post-checkout: create vault work-log stub
 [ "$3" = "1" ] || exit 0
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-case "$BRANCH" in main|master|develop|development) exit 0 ;; esac
+case "$BRANCH" in main|master|develop|development|HEAD) exit 0 ;; esac
 REPO=$(basename "$(git rev-parse --show-toplevel)")
 SCRIPT="/mnt/c/my-vault/ObsidianSkills/work-log/scripts/create_branch_note.sh"
 [ -x "$SCRIPT" ] && bash "$SCRIPT" "$REPO" "$BRANCH"
 HOOK
 
 usage() {
-  echo "Usage: $0 [--apply] [--repo-root /path/to/repos]"
+  echo "Usage: $0 [--apply] [--force] [--repo-root /path/to/repos]"
   echo "  --apply      Write hooks (default: dry-run)"
+  echo "  --force      Overwrite existing managed hooks (use after hook template changes)"
   echo "  --repo-root  Override default repo root"
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --apply)     APPLY=1; shift ;;
+    --force)     FORCE=1; shift ;;
     --repo-root) REPO_ROOT="$2"; shift 2 ;;
     -h|--help)   usage; exit 0 ;;
     *)           echo "Unknown argument: $1"; usage; exit 1 ;;
@@ -63,11 +66,14 @@ for repo_dir in "$REPO_ROOT"/*/; do
 
   hook_file="$hook_dir/post-checkout"
 
-  # Already ours — skip
+  # Already ours — skip unless --force
   if [[ -f "$hook_file" ]] && grep -qF "$HOOK_SIGNATURE" "$hook_file" 2>/dev/null; then
-    echo "[SKIP]    $repo_name: hook already installed"
-    ((skipped++)) || true
-    continue
+    if [[ "$FORCE" -eq 0 ]]; then
+      echo "[SKIP]    $repo_name: hook already installed (use --force to overwrite)"
+      ((skipped++)) || true
+      continue
+    fi
+    echo "[FORCE]   $repo_name → $hook_file"
   fi
 
   # Conflict: hook exists but not ours — don't overwrite
