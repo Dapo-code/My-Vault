@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# One-time installer: writes the post-checkout work-log hook into every Allica repo's .git/hooks/.
+# One-time installer: writes the post-checkout work-log hook into every Allica repo's .git/hooks/
+# and deploys work-log.instructions.md (local-only, git-excluded) to .github/instructions/.
 # Dry-run by default — pass --apply to write.
-# Hooks live in .git/hooks/ which git never tracks, so no .gitignore change is needed.
 # Safety guard: if core.hooksPath points outside .git/, the repo is skipped with a warning.
 
 REPO_ROOT="/home/dapo/desktop/allica-repo"
+VAULT_DIR="/mnt/c/my-vault"
 APPLY=0
 FORCE=0
 
+INSTRUCTIONS_TEMPLATE="$VAULT_DIR/ObsidianSkills/work-log/templates/work-log.instructions.md"
+INSTRUCTIONS_SIG="# Work Log Instructions"
 HOOK_SIGNATURE="# post-checkout: create vault work-log stub"
 
 # Written verbatim into each repo's .git/hooks/post-checkout
@@ -26,8 +29,8 @@ HOOK
 
 usage() {
   echo "Usage: $0 [--apply] [--force] [--repo-root /path/to/repos]"
-  echo "  --apply      Write hooks (default: dry-run)"
-  echo "  --force      Overwrite existing managed hooks (use after hook template changes)"
+  echo "  --apply      Write hooks and instructions (default: dry-run)"
+  echo "  --force      Overwrite existing managed hooks/instructions (use after template changes)"
   echo "  --repo-root  Override default repo root"
 }
 
@@ -65,36 +68,58 @@ for repo_dir in "$REPO_ROOT"/*/; do
   fi
 
   hook_file="$hook_dir/post-checkout"
+  install_hook=1
 
-  # Already ours — skip unless --force
   if [[ -f "$hook_file" ]] && grep -qF "$HOOK_SIGNATURE" "$hook_file" 2>/dev/null; then
     if [[ "$FORCE" -eq 0 ]]; then
       echo "[SKIP]    $repo_name: hook already installed (use --force to overwrite)"
       ((skipped++)) || true
-      continue
+      install_hook=0
+    else
+      echo "[FORCE]   $repo_name → $hook_file"
     fi
-    echo "[FORCE]   $repo_name → $hook_file"
-  fi
-
-  # Conflict: hook exists but not ours — don't overwrite
-  if [[ -f "$hook_file" ]]; then
-    echo "[WARN]    $repo_name: $hook_file exists but is not managed by work-log — skipping"
+  elif [[ -f "$hook_file" ]]; then
+    echo "[WARN]    $repo_name: $hook_file exists but not managed by work-log — skipping hook"
     ((warned++)) || true
-    continue
+    install_hook=0
+  else
+    echo "[INSTALL] $repo_name → $hook_file"
   fi
 
-  echo "[INSTALL] $repo_name → $hook_file"
-  if [[ "$APPLY" -eq 1 ]]; then
+  if [[ "$install_hook" -eq 1 && "$APPLY" -eq 1 ]]; then
     mkdir -p "$hook_dir"
     printf '%s\n' "$HOOK_CONTENT" > "$hook_file"
     chmod +x "$hook_file"
     ((installed++)) || true
   fi
+
+  # Deploy local-only Copilot instructions file (git-excluded via .git/info/exclude)
+  instr_dir="$repo_dir/.github/instructions"
+  instr_file="$instr_dir/work-log.instructions.md"
+  exclude_file="$repo_dir/.git/info/exclude"
+
+  if [[ -f "$instr_file" ]] && grep -qF "$INSTRUCTIONS_SIG" "$instr_file" 2>/dev/null && [[ "$FORCE" -eq 0 ]]; then
+    echo "[SKIP]    $repo_name: instructions already deployed"
+  elif [[ -f "$instr_file" && "$FORCE" -eq 0 ]]; then
+    echo "[WARN]    $repo_name: $instr_file exists but not ours — skipping instructions"
+    ((warned++)) || true
+  else
+    echo "[INSTR]   $repo_name → $instr_file"
+    if [[ "$APPLY" -eq 1 ]]; then
+      mkdir -p "$instr_dir"
+      cp "$INSTRUCTIONS_TEMPLATE" "$instr_file"
+      # Register in local exclude so git never stages or commits this file
+      if ! grep -qF ".github/instructions/work-log.instructions.md" "$exclude_file" 2>/dev/null; then
+        echo ".github/instructions/work-log.instructions.md" >> "$exclude_file"
+      fi
+    fi
+  fi
+
 done
 
 echo ""
 if [[ "$APPLY" -eq 0 ]]; then
-  echo "Dry-run complete (installed=0). Pass --apply to write hooks."
+  echo "Dry-run complete. Pass --apply to write hooks and instructions."
 else
   echo "Done — installed=$installed  skipped=$skipped  warned=$warned"
 fi

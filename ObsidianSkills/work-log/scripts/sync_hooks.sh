@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Cron-driven sync: installs the work-log post-checkout hook in any Allica repos that
-# don't have it yet (e.g. newly cloned repos). Scheduled weekly on Mondays at 10:00.
+# Cron-driven sync: installs the work-log post-checkout hook and Copilot instructions
+# in any Allica repos that don't have them yet (e.g. newly cloned repos).
+# Scheduled weekly on Mondays at 10:00.
 # Modelled on ObsidianSkills/allica-repo-locations/scripts/update_repo_list.sh.
 
 REPO_ROOT="/home/dapo/desktop/allica-repo"
 VAULT_DIR="/mnt/c/my-vault"
 LOG_FILE="$VAULT_DIR/logs/work-log-hook-sync.log"
 
+INSTRUCTIONS_TEMPLATE="$VAULT_DIR/ObsidianSkills/work-log/templates/work-log.instructions.md"
+INSTRUCTIONS_SIG="# Work Log Instructions"
 HOOK_SIGNATURE="# post-checkout: create vault work-log stub"
 
 read -r -d '' HOOK_CONTENT <<'HOOK' || true
@@ -53,24 +56,38 @@ for repo_dir in "$REPO_ROOT"/*/; do
 
   hook_file="$hook_dir/post-checkout"
 
-  # Already managed by us — nothing to do
   if [[ -f "$hook_file" ]] && grep -qF "$HOOK_SIGNATURE" "$hook_file" 2>/dev/null; then
     ((skipped++)) || true
-    continue
-  fi
-
-  # Conflict: pre-existing hook not ours — don't overwrite silently
-  if [[ -f "$hook_file" ]]; then
-    log "WARN $repo_name: $hook_file exists but not managed by work-log — skipping"
+  elif [[ -f "$hook_file" ]]; then
+    log "WARN $repo_name: $hook_file exists but not managed by work-log — skipping hook"
     ((warned++)) || true
-    continue
+  else
+    mkdir -p "$hook_dir"
+    printf '%s\n' "$HOOK_CONTENT" > "$hook_file"
+    chmod +x "$hook_file"
+    log "INSTALLED hook in $repo_name"
+    ((installed++)) || true
   fi
 
-  mkdir -p "$hook_dir"
-  printf '%s\n' "$HOOK_CONTENT" > "$hook_file"
-  chmod +x "$hook_file"
-  log "INSTALLED hook in $repo_name"
-  ((installed++)) || true
+  # Deploy local-only Copilot instructions file (git-excluded via .git/info/exclude)
+  instr_dir="$repo_dir/.github/instructions"
+  instr_file="$instr_dir/work-log.instructions.md"
+  exclude_file="$repo_dir/.git/info/exclude"
+
+  if [[ -f "$instr_file" ]] && grep -qF "$INSTRUCTIONS_SIG" "$instr_file" 2>/dev/null; then
+    : # already deployed
+  elif [[ -f "$instr_file" ]]; then
+    log "WARN $repo_name: $instr_file exists but not ours — skipping instructions"
+    ((warned++)) || true
+  else
+    mkdir -p "$instr_dir"
+    cp "$INSTRUCTIONS_TEMPLATE" "$instr_file"
+    if ! grep -qF ".github/instructions/work-log.instructions.md" "$exclude_file" 2>/dev/null; then
+      echo ".github/instructions/work-log.instructions.md" >> "$exclude_file"
+    fi
+    log "DEPLOYED instructions in $repo_name"
+  fi
+
 done
 
 log "Sync complete — installed=$installed skipped=$skipped warned=$warned"
