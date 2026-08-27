@@ -11,14 +11,10 @@
             "id": "c3f5e5c32bdf7155",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "My-Notes/Git/git-notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "git-notes"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
         ]
@@ -185,9 +181,13 @@
   },
   "active": "c3f5e5c32bdf7155",
   "lastOpenFiles": [
+    "My-Notes/Work-Log/PET-front_door/feature/PLD-390.md",
+    "My-Notes/Work-Log/PET-front_door/feature",
+    "My-Notes/Work-Log/PET-front_door",
+    "My-Notes/Work-Log/index.md",
+    "My-Notes/Git/git-notes.md",
     "My-Notes/PET-AI/pet-ai.md",
     "My-Notes/my-notes.md",
-    "My-Notes/Git/git-notes.md",
     "ObsidianSkills/skill-format-guide/skill-format-guide.md",
     "ObsidianSkills/daily-notes/daily-notes.md",
     "My-Notes/Azure/Storage-Account/vm-connectivity-test copy.md",
@@ -216,10 +216,6 @@
     "ObsidianSkills/changelog-maintenance/SKILL.md",
     "ObsidianSkills/github-commit-push/SKILL.md",
     "ObsidianSkills/github-commit-push/github-commit-push.md",
-    "ObsidianSkills/github-commit-push",
-    "rules/github-rules/github-agent-rules.md",
-    "rules/github-rules",
-    "ObsidianSkills/github-ssh-dapo-setup/github-ssh-dapo-setup.md",
-    "ObsidianSkills/github-ssh-dapo-setup/SKILL.md"
+    "rules/github-rules/github-agent-rules.md"
   ]
 }

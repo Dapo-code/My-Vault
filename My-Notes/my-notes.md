@@ -5,7 +5,7 @@ tags:
   - notes
   - organization
 created: 2026-06-08
-updated: 2026-06-08
+updated: 2026-08-19
 ---
 
 # My Notes Folder Guide
@@ -24,7 +24,9 @@ Use the `My-Notes` folder to store regular working notes, drafts, and day-to-day
 
 ## Current Contents
 - [[My-Notes/monitor-note-analysis|Monitor Runbook Notes (Converted)]]
+- [[My-Notes/Work-Log/index|Work Log Index]]
 
 ## Related
 - [[Oladapo|Top-Level Index]]
 - [[changelog|Vault Change Log]]
+- [[ObsidianSkills/work-log/work-log|Work Log Skill]]

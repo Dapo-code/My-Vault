@@ -103,6 +103,11 @@ status: in-progress
 
 
 ## Notes / Learnings
+
+## Related
+- [[ObsidianSkills/work-log/work-log|Work Log Skill]]
+- [[My-Notes/Work-Log/index|Work Log Index]]
+- [[My-Notes/my-notes|My Notes]]
 ```
 
 ## Output Contract
